@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ForgeRoom is the real-time multiplayer AI collaboration platform for enterprise teams. Work together with multiple users and streaming AI agents in a unified workspace.">
+  <meta name="keywords" content="multiplayer AI, real-time AI, agent collaboration, enterprise AI, team AI workspace">
+  <title>ForgeRoom | Real-Time Multiplayer AI Collaboration Platform for Enterprise Teams</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ForgeRoom - Work Together With Your AI. Not Beside It.">
+  <meta property="og:description" content="Real-time multiplayer agent collaboration workspace. Think Google Docs but for AI agents and enterprise teams.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="landing-page-view">
+
+  <!-- 1. Navigation Header -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo" id="logo-link">
+        <div class="logo-dot" aria-hidden="true"></div>
+        Forge<span>Room</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#demo" id="nav-demo">Product Demo</a></li>
+        <li><a href="#use-cases" id="nav-use-cases">Use Cases</a></li>
+        <li><a href="#comparison" id="nav-comparison">Why ForgeRoom</a></li>
+        <li><a href="#faq" id="nav-faq">FAQ</a></li>
+      </ul>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="#" class="nav-login-btn" id="nav-login-btn" style="color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Login</a>
+        <a href="#" class="nav-cta" id="header-cta">Create Account</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">
+        <div class="hero-tag-dot" aria-hidden="true"></div>
+        The Multiplayer AI Evolution
+      </div>
+      <h1 class="text-gradient">Work Together With Your AI.<br>Not Beside It.</h1>
+      <p>Multiplayer agent workspace for enterprise teams that need to think out loud, make decisions together, and ship faster.</p>
+      
+      <div class="hero-actions">
+        <a href="#" class="btn-primary" id="hero-btn-primary">Create Account & Try Free</a>
+        <a href="#demo" class="btn-secondary" id="hero-btn-secondary">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Watch 2-min demo
+        </a>
+      </div>
+
+      <!-- 3D Animation Arena / Fallback -->
+      <div class="stage-container" id="threejs-container">
+        <!-- 3D WebGL Canvas will append here via JS -->
+        
+        <!-- Accessibility Fallback Visual -->
+        <div class="fallback-workspace" id="threejs-fallback" aria-label="An abstract visual showing team members collaborating with a central glowing AI agent node">
+          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="400" cy="225" r="200" stroke="#1A237E" stroke-width="1" stroke-dasharray="5 5"/>
+            <!-- AI Center Core -->
+            <g transform="translate(400, 225)">
+              <circle cx="0" cy="0" r="45" fill="url(#aiGlow)" opacity="0.15"/>
+              <circle cx="0" cy="0" r="30" fill="none" stroke="#00E5FF" stroke-width="2"/>
+              <polygon points="0,-20 17,10 -17,10" fill="none" stroke="#00E5FF" stroke-width="1.5"/>
+              <circle cx="0" cy="0" r="5" fill="#00E5FF"/>
+            </g>
+            <!-- Human 1 -->
+            <g transform="translate(250, 150)">
+              <circle cx="0" cy="0" r="22" fill="#161C2A" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M-10,12 C-10,5 -5,2 0,2 C5,2 10,5 10,12" stroke="#F5F7FA" stroke-width="2" fill="none"/>
+              <circle cx="0" cy="-6" r="6" fill="#F5F7FA"/>
+              <circle cx="0" cy="0" r="28" fill="none" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.5"/>
+            </g>
+            <!-- Human 2 -->
+            <g transform="translate(550, 150)">
+              <circle cx="0" cy="0" r="22" fill="#161C2A" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M-10,12 C-10,5 -5,2 0,2 C5,2 10,5 10,12" stroke="#F5F7FA" stroke-width="2" fill="none"/>
+              <circle cx="0" cy="-6" r="6" fill="#F5F7FA"/>
+              <circle cx="0" cy="0" r="28" fill="none" stroke="#FFA726" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.5"/>
+            </g>
+            <!-- Human 3 -->
+            <g transform="translate(400, 320)">
+              <circle cx="0" cy="0" r="22" fill="#161C2A" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M-10,12 C-10,5 -5,2 0,2 C5,2 10,5 10,12" stroke="#F5F7FA" stroke-width="2" fill="none"/>
+              <circle cx="0" cy="-6" r="6" fill="#F5F7FA"/>
+              <circle cx="0" cy="0" r="28" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.3"/>
+            </g>
+            <!-- Sync indicators -->
+            <path d="M 370,225 Q 310,187.5 272,150" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="M 430,225 Q 490,187.5 528,150" stroke="#FFA726" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="M 400,255 Q 400,287.5 400,298" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <defs>
+              <radialGradient id="aiGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00E5FF"/>
+                <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Problem Statement Section -->
+  <section class="problem section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>AI Collaboration Today is Broken</h2>
+        <p>Chatbots are designed for individuals. Teams need tools that support collective context and real-time execution.</p>
+      </div>
+
+      <div class="problem-grid">
+        <!-- Card 1 -->
+        <div class="problem-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3>Solo Silos</h3>
+          <p>Everyone has their own isolated ChatGPT session. Important team decisions end up buried in Slack. Nobody has the full picture or history.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="problem-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Slow Handoffs</h3>
+          <p>Copy-pasting outputs between documents and tools. Crucial details are lost, files fall out of sync, causing rework and project delays.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="problem-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </div>
+          <h3>No Control</h3>
+          <p>AI runs independently behind closed tabs. Your team cannot intervene mid-stream, redirect outputs, or review compliance steps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Proposed Solution Section -->
+  <section class="solution section-padding" id="demo">
+    <div class="container">
+      <div class="solution-split">
+        <div class="solution-left">
+          <h3>Meet ForgeRoom:<br>Real-Time Team Agent Collaboration</h3>
+          <p class="subtitle">One shared workspace where your team and AI think together.</p>
+          <ul class="solution-list">
+            <li class="solution-item">
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div>
+                <h4>Share live agent sessions</h4>
+                <p>Instantly invite your team via link to watch, chat, and review outputs synchronously.</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div>
+                <h4>Direct the AI mid-stream</h4>
+                <p>Pause responses, course-correct, and provide immediate feedback before final code or documents build.</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div>
+                <h4>Single source of truth</h4>
+                <p>Zero copy-paste handoffs. Cursors, focuses, and results sync instantaneously across everyone's screens.</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div>
+                <h4>Branching & versioning</h4>
+                <p>Track decisions, save snapshots, and fork alternate paths without losing work history.</p>
+              </div>
+            </li>
+            <li class="solution-item">
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div>
+                <h4>Export and integrate</h4>
+                <p>Seamless pipelines to export work straight into Slack, Notion, GitHub, or Jira.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Live Console typing simulation -->
+        <div class="solution-right">
+          <div class="demo-console">
+            <div class="console-header">
+              <div class="console-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="console-title">forgeroom-live-session.sh</div>
+              <div class="console-status-wrap" style="display: flex; align-items: center; gap: 6px;">
+                <span class="status-dot offline" id="connection-status-dot"></span>
+                <span class="status-text" id="connection-status-text" style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-secondary);">Offline</span>
+              </div>
+            </div>
+            
+            <div class="console-presence" id="console-presence" style="background: rgba(0, 229, 255, 0.03); border-bottom: 1px solid var(--border-slate); padding: 8px 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);">
+              Online Collaborators: <span id="presence-list" style="color: var(--text-primary);">None</span>
+            </div>
+            
+            <div class="console-body" id="console-body" aria-live="polite">
+              <!-- Live WebSocket messages stream here -->
+              <div class="console-system-msg" style="color: var(--accent-amber); font-style: italic;">System: Connecting to the collaborative Sandbox Room...</div>
+            </div>
+            
+            <form class="console-input-area" id="console-chat-form" style="display: flex; border-top: 1px solid var(--border-slate); background: #0b0f19;">
+              <input type="text" id="console-input" placeholder="Type a message or prompt @ForgeBot..." autocomplete="off" required disabled style="flex-grow: 1; background: transparent; border: none; padding: 12px 16px; color: var(--text-primary); font-family: var(--font-mono); font-size: 0.85rem; outline: none;">
+              <button type="button" class="console-tag-btn" id="console-tag-btn" disabled style="background: rgba(0, 229, 255, 0.08); border: none; border-left: 1px solid var(--border-slate); color: var(--accent-teal); font-family: var(--font-mono); font-size: 0.75rem; padding: 0 12px; cursor: pointer; transition: background 0.2s;">@ForgeBot</button>
+              <button type="submit" id="console-send-btn" disabled style="background: var(--accent-teal); color: #000; border: none; border-left: 1px solid var(--border-slate); font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; padding: 0 16px; cursor: pointer; transition: filter 0.2s;">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Features Grid Section -->
+  <section class="features section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for Real Teamwork</h2>
+        <p>Everything you need to orchestrate complex collaborative workflows alongside custom AI models.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card glass-panel">
+          <div class="card-canvas-container">
+            <canvas id="canvas-shared-rooms" class="feature-card-canvas"></canvas>
+          </div>
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3>Live Shared Rooms</h3>
+          <p>Instant workspace setup. Share a link, monitor presence with online indicators, and view live active cursors.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card glass-panel">
+          <div class="card-canvas-container">
+            <canvas id="canvas-streaming-agents" class="feature-card-canvas"></canvas>
+          </div>
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3>Streaming AI Agents</h3>
+          <p>Watch agents compile and execute tasks step-by-step. Extremely low latency real-time console rendering.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Pause & Redirect</h3>
+          <p>Intervene mid-generation. Halt response streams, type course-corrections, and modify generation parameters.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
+            </svg>
+          </div>
+          <h3>@Mention Collaboration</h3>
+          <p>Mention specific teammates to prompt human reviews, or tag specialized AI agents to trigger code, QA, or editing tasks.</p>
+        </div>
+        <!-- Feature 5 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3>Rich Session History</h3>
+          <p>Full transcripts of conversations, decision matrices, code builds, and prompts. Fully searchable and audit-ready.</p>
+        </div>
+        <!-- Feature 6 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+            </svg>
+          </div>
+          <h3>Version Branching</h3>
+          <p>Test layout variations and draft proposals independently. Merge successful experiments back into main workspace folders.</p>
+        </div>
+        <!-- Feature 7 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </div>
+          <h3>One-Click Export</h3>
+          <p>Download clean outputs in Markdown or PDF, or push them directly to connected systems without formatting loss.</p>
+        </div>
+        <!-- Feature 8 -->
+        <div class="feature-card glass-panel">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 .364l-.707 .707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548 .547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3>Smart Agent Suggestions</h3>
+          <p>Our orchestrator recommends specific specialized agents and tools based on context and project type.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Use Cases Section -->
+  <section class="use-cases section-padding" id="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for Every Team</h2>
+        <p>Real-time multiplayer workspaces that supercharge efficiency across specialized departments.</p>
+      </div>
+
+      <div class="use-cases-layout">
+        <!-- Tabs left -->
+        <div class="uc-tabs" role="tablist" aria-label="ForgeRoom Use Cases">
+          <button class="uc-tab-btn active" role="tab" aria-selected="true" aria-controls="uc-legal" data-tab="legal" id="tab-btn-legal">
+            <h4>Legal Teams</h4>
+            <p>Contracts & Compliance Reviews</p>
+          </button>
+          <button class="uc-tab-btn" role="tab" aria-selected="false" aria-controls="uc-sales" data-tab="sales" id="tab-btn-sales">
+            <h4>Sales Teams</h4>
+            <p>Real-Time Deal Rooms</p>
+          </button>
+          <button class="uc-tab-btn" role="tab" aria-selected="false" aria-controls="uc-support" data-tab="support" id="tab-btn-support">
+            <h4>Support Teams</h4>
+            <p>Complex Ticket Triage</p>
+          </button>
+          <button class="uc-tab-btn" role="tab" aria-selected="false" aria-controls="uc-engineering" data-tab="engineering" id="tab-btn-engineering">
+            <h4>Engineering Teams</h4>
+            <p>Real-Time Collaborative Coding</p>
+          </button>
+        </div>
+
+        <!-- Contents right -->
+        <div class="uc-display-card glass-panel">
+          
+          <!-- Legal -->
+          <div class="uc-content-pane active" id="uc-legal" role="tabpanel" aria-labelledby="tab-btn-legal">
+            <div class="uc-header">
+              <span class="uc-tag">Contract Review</span>
+            </div>
+            <h3>Co-draft compliance agreements with counsel, paralegals, and AI in one session.</h3>
+            <p>Review and audit clauses synchronously. Multiple team members can assign issues to compliance agents and immediately review alternative legal phrasing recommendations on the canvas.</p>
+            
+            <div class="uc-visual-mockup">
+              <div class="mockup-row">
+                <span class="m-label">Active Document:</span>
+                <span class="m-value">NDAv4_Draft.docx</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Presence:</span>
+                <span class="m-value highlight">Alex (General Counsel), Sarah (VP), LegalAgent-v3</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Audit Output:</span>
+                <span class="m-value highlight">0 liabilities detected (Section 12 modified)</span>
+              </div>
+            </div>
+            <a href="#cta" class="uc-link">See example workflow &rarr;</a>
+          </div>
+
+          <!-- Sales -->
+          <div class="uc-content-pane" id="uc-sales" role="tabpanel" aria-labelledby="tab-btn-sales">
+            <div class="uc-header">
+              <span class="uc-tag amber">Deal Analysis</span>
+            </div>
+            <h3>Synchronous RFP building and customer objection mapping.</h3>
+            <p>Sales teams run competitive comparisons and construct high-stakes deal assets alongside objection-handling agents, keeping representatives aligned on messaging in real time.</p>
+            
+            <div class="uc-visual-mockup">
+              <div class="mockup-row">
+                <span class="m-label">Active Room:</span>
+                <span class="m-value">Enterprise RFP Workspace</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Presence:</span>
+                <span class="m-value highlight amber">Dave (Director), Tina (AE), ProposalBot</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Action:</span>
+                <span class="m-value highlight amber">Objections generated & mapped to slide-deck</span>
+              </div>
+            </div>
+            <a href="#cta" class="uc-link amber">See example workflow &rarr;</a>
+          </div>
+
+          <!-- Support -->
+          <div class="uc-content-pane" id="uc-support" role="tabpanel" aria-labelledby="tab-btn-support">
+            <div class="uc-header">
+              <span class="uc-tag">Escalation Triage</span>
+            </div>
+            <h3>Collaborative resolution of critical client incidents.</h3>
+            <p>Avoid isolated ticketing pools. Triage customer bugs, trace historical queries, and generate accurate draft replies alongside support agents in a transparent workspace.</p>
+            
+            <div class="uc-visual-mockup">
+              <div class="mockup-row">
+                <span class="m-label">Active Room:</span>
+                <span class="m-value">P0 incident_4901</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Presence:</span>
+                <span class="m-value highlight">Devops Lead, T2 Agent, DiagnosticAgent</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Status:</span>
+                <span class="m-value highlight">Draft response generated & ready for approval</span>
+              </div>
+            </div>
+            <a href="#cta" class="uc-link">See example workflow &rarr;</a>
+          </div>
+
+          <!-- Engineering -->
+          <div class="uc-content-pane" id="uc-engineering" role="tabpanel" aria-labelledby="tab-btn-engineering">
+            <div class="uc-header">
+              <span class="uc-tag amber">Pair Programming</span>
+            </div>
+            <h3>Real-time architectural reviews and code builds with AI.</h3>
+            <p>Developers collaborate with colleagues and specialized code-completion agents. Run terminal diagnostics and deploy hotfixes synchronously, skipping slow PR reviews.</p>
+            
+            <div class="uc-visual-mockup">
+              <div class="mockup-row">
+                <span class="m-label">Repo:</span>
+                <span class="m-value">api-gateway / main</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Presence:</span>
+                <span class="m-value highlight amber">Lead Dev, Senior QA, RefactorBot</span>
+              </div>
+              <div class="mockup-row">
+                <span class="m-label">Result:</span>
+                <span class="m-value highlight amber">Unit tests passed (3,400 lines updated)</span>
+              </div>
+            </div>
+            <a href="#cta" class="uc-link amber">See example workflow &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Comparison Table -->
+  <section class="comparison section-padding" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why ForgeRoom is Different</h2>
+        <p>Not just another chatbot. ForgeRoom is purpose-built for team presence and live agent co-steering.</p>
+      </div>
+
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>ForgeRoom ✓</th>
+              <th>Dust</th>
+              <th>OpenAI Workspace</th>
+              <th>Claude in Cowork</th>
+              <th>Buda AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Real-Time Multiplayer</td>
+              <td class="check-green">✓✓ (Best)</td>
+              <td class="cross-red">✗</td>
+              <td class="check-half">◐ (Limited)</td>
+              <td class="check-half">◐ (Doc-focused)</td>
+              <td class="cross-red">✗</td>
+            </tr>
+            <tr>
+              <td>Pause & Redirect Agents</td>
+              <td class="check-green">✓✓ (Full)</td>
+              <td class="check-half">◐</td>
+              <td class="check-half">◐</td>
+              <td class="check-green">✓</td>
+              <td class="cross-red">✗</td>
+            </tr>
+            <tr>
+              <td>Live Presence & Cursors</td>
+              <td class="check-green">✓✓ (Yes)</td>
+              <td class="cross-red">✗</td>
+              <td class="cross-red">✗</td>
+              <td class="check-green">✓</td>
+              <td class="cross-red">✗</td>
+            </tr>
+            <tr>
+              <td>Agent Suggestions</td>
+              <td class="check-green">✓ (Smart)</td>
+              <td class="check-half">◐</td>
+              <td class="check-green">✓</td>
+              <td class="check-half">◐</td>
+              <td class="cross-red">✗</td>
+            </tr>
+            <tr>
+              <td>Branching & Mentions</td>
+              <td class="check-green">✓✓ (Full)</td>
+              <td class="check-half">◐</td>
+              <td class="cross-red">✗</td>
+              <td class="check-green">✓</td>
+              <td class="check-half">◐</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="comparison-note">ForgeRoom is purpose-built for teams. Alternatives are individual chatbots with basic shared histories. That's the difference.</span>
+    </div>
+  </section>
+
+  <!-- 8. FAQ Section -->
+  <section class="faq section-padding" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>Questions?</h2>
+        <p>Everything you need to know about setting up multiplayer agent rooms.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <!-- Q1 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q1">
+            How is this different from just using Claude or ChatGPT together?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q1">
+            <div class="faq-answer-inner">
+              Claude and ChatGPT are built for single users. Their shared links are passive and static. ForgeRoom offers active shared rooms where multiple people can interact, pause, edit, and co-direct agents in real time, featuring live cursor presence and state synchronization.
+            </div>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q2">
+            Can we use this for sensitive work (legal, healthcare, finance)?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q2">
+            <div class="faq-answer-inner">
+              Absolutely. ForgeRoom provides end-to-end encryption (E2EE), compliance reporting, and granular role-based permissions (RBAC). We do not train external models on your proprietary team logs.
+            </div>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q3">
+            What agent frameworks does ForgeRoom support?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q3">
+            <div class="faq-answer-inner">
+              We natively support agents built with LangGraph, LlamaIndex, OpenAI Assistant API, Anthropic SDK, or custom-packaged APIs connecting via our open workspace endpoints.
+            </div>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q4">
+            Can we integrate with our existing tools?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q4">
+            <div class="faq-answer-inner">
+              Yes. Connect seamlessly to Slack for alerts, Notion/Confluence for knowledge base synchronization, and GitHub/Linear/Jira for project tickets and code operations.
+            </div>
+          </div>
+        </div>
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q5">
+            How long does setup take?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q5">
+            <div class="faq-answer-inner">
+              Under two minutes. Simply sign up, establish a project workspace, define the agents you want to use, and share an invite link to pull your teammates into the canvas.
+            </div>
+          </div>
+        </div>
+        <!-- Q6 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q6">
+            What is the pricing?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q6">
+            <div class="faq-answer-inner">
+              ForgeRoom is free for up to 3 live rooms and unlimited team members. Our Pro Tier starts at $29/user/month (billed annually) for unlimited rooms and advanced branching. Enterprise rates are available.
+            </div>
+          </div>
+        </div>
+        <!-- Q7 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q7">
+            Is my data secure?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q7">
+            <div class="faq-answer-inner">
+              Yes, we are SOC2 Type II certified and GDPR compliant. All files are hosted on isolated servers in your choice of US, EU, or APAC data residencies.
+            </div>
+          </div>
+        </div>
+        <!-- Q8 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" id="faq-q8">
+            Can we self-host ForgeRoom?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region" aria-labelledby="faq-q8">
+            <div class="faq-answer-inner">
+              Self-hosting is not supported on the standard Cloud tier, but on-premise container deployment (via Kubernetes/Docker) is on our roadmap for late 2025.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA Section -->
+  <section class="cta-banner section-padding" id="cta">
+    <div class="container">
+      <h2>Start Collaborating with Your AI Today</h2>
+      <p>No credit card required. Free tier includes up to 3 live rooms and unlimited team members.</p>
+      
+      <div class="cta-actions">
+        <a href="#" class="btn-primary" id="cta-btn-primary">Create Account & Try Free</a>
+        <a href="#cta" class="btn-secondary" id="cta-btn-secondary">Schedule Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <a href="#" class="logo">
+            <div class="logo-dot" aria-hidden="true"></div>
+            Forge<span>Room</span>
+          </a>
+          <p class="footer-desc">The real-time workspace connecting teams and AI agents in one flow state.</p>
+        </div>
+        <div class="footer-links-col">
+          <h5>Product</h5>
+          <ul class="footer-links">
+            <li><a href="#demo" id="foot-demo">Live Demo</a></li>
+            <li><a href="#use-cases" id="foot-use-cases">Use Cases</a></li>
+            <li><a href="#comparison" id="foot-comparison">Comparison</a></li>
+            <li><a href="#faq" id="foot-faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Security Info</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h5>Stay Updated</h5>
+          <p>Get the latest on multi-agent collaboration features and frameworks.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" placeholder="work@email.com" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 ForgeRoom Inc. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div> <!-- Close landing-page-view -->
+
+  <!-- 11. Dashboard View (Active for Logged in Users) -->
+  <div id="dashboard-view" style="display: none; height: 100vh; grid-template-columns: 280px 1fr; background: var(--bg-deep); color: var(--text-primary); font-family: var(--font-body); overflow: hidden;">
+    <!-- Dashboard Sidebar -->
+    <aside style="background: #0b0f19; border-right: 1px solid var(--border-slate); display: flex; flex-direction: column; justify-content: space-between; overflow-y: auto;">
+      <div>
+        <!-- Logo Header -->
+        <div style="padding: 24px; border-bottom: 1px solid var(--border-slate); display: flex; align-items: center; justify-content: space-between;">
+          <a href="#" class="logo" style="margin: 0; font-size: 1.3rem;">
+            <div class="logo-dot" aria-hidden="true"></div>
+            Forge<span>Room</span>
+          </a>
+        </div>
+        
+        <!-- Organization Selector Section -->
+        <div style="padding: 20px 20px 10px 20px; border-bottom: 1px solid var(--border-slate); display: flex; flex-direction: column; gap: 8px;">
+          <h5 style="font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin: 0;">Workspace Org</h5>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <select id="sidebar-org-select" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); color: var(--text-primary); border-radius: 6px; padding: 6px 10px; font-family: var(--font-body); font-size: 0.8rem; outline: none; flex-grow: 1; cursor: pointer;">
+              <option value="">Personal Workspace</option>
+            </select>
+            <button id="sidebar-create-org-btn" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 6px; padding: 6px 8px; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 32px;" title="Create new Organization">➕</button>
+          </div>
+          <!-- Org settings trigger button, shown only when an Org is selected -->
+          <button id="sidebar-org-panel-btn" style="display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-slate); color: var(--text-secondary); border-radius: 6px; padding: 6px; font-family: var(--font-display); font-size: 0.75rem; cursor: pointer; text-align: center; margin-top: 4px;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">⚙️ Org Settings & Audit Logs</button>
+        </div>
+        
+        <!-- Rooms Section -->
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-slate);">
+          <h5 style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px;">Collaborative Rooms</h5>
+          
+          <ul id="dashboard-rooms-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+            <!-- Loaded dynamically from API -->
+          </ul>
+          
+          <!-- Create Room Form -->
+          <form id="dashboard-create-room-form" style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <input type="text" id="new-room-title" placeholder="New room title..." required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.85rem; outline: none; width: 100%;">
+            <button type="submit" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 6px; padding: 8px; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; width: 100%;" onmouseover="this.style.background='rgba(0, 229, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 229, 255, 0.1)'">+ Create Room</button>
+          </form>
+
+          <!-- Starter Templates Dropdown -->
+          <div style="margin-top: 16px;">
+            <h5 style="font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 8px;">Starter Templates</h5>
+            <select id="sidebar-template-select" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); color: var(--text-primary); border-radius: 6px; padding: 8px 12px; font-family: var(--font-body); font-size: 0.8rem; outline: none; width: 100%; cursor: pointer;">
+              <option value="" disabled selected>✨ Select template...</option>
+              <!-- Loaded dynamically from templates API -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Snapshots / Versioning Section -->
+        <div style="padding: 20px;">
+          <h5 style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px;">Session History</h5>
+          <ul id="dashboard-versions-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; max-height: 200px; overflow-y: auto;">
+            <!-- Loaded dynamically -->
+            <li style="font-size: 0.8rem; color: var(--text-secondary); font-style: italic;">No snapshots saved yet.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Profile & Logout Panel -->
+      <div style="padding: 20px; border-top: 1px solid var(--border-slate); background: rgba(0,0,0,0.15);">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
+          <div id="db-profile-name" style="font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Loading Profile...</div>
+          <div id="db-profile-email" style="font-size: 0.75rem; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">email@example.com</div>
+        </div>
+        <button id="dashboard-logout-btn" style="background: rgba(239, 83, 80, 0.1); border: 1px solid rgba(239, 83, 80, 0.3); color: #EF5350; border-radius: 6px; padding: 8px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: background 0.2s; width: 100%;" onmouseover="this.style.background='rgba(239, 83, 80, 0.2)'" onmouseout="this.style.background='rgba(239, 83, 80, 0.1)'">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Active Workspace Panel -->
+    <main style="display: grid; grid-template-rows: 70px 1fr; background: var(--bg-deep); position: relative; height: 100vh;">
+      <!-- Active Header -->
+      <header style="border-bottom: 1px solid var(--border-slate); background: #0b0f19; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 70px;">
+        <div style="flex-grow: 1; max-width: 35%;">
+          <h4 id="db-active-room-title" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Sandbox Room</h4>
+          <div style="margin-top: 4px; display: flex; align-items: center; gap: 8px;">
+            <div id="db-active-room-presence" style="font-size: 0.75rem; color: var(--text-secondary); font-family: var(--font-mono); display: flex; align-items: center; gap: 4px;">Collaborators: loading...</div>
+            <button id="db-header-copy-link-btn" class="canvas-btn" style="padding: 2px 6px; font-size: 0.7rem; display: inline-flex; align-items: center; gap: 4px; border-radius: 4px; cursor: pointer; transition: all 0.2s; background: rgba(0, 229, 255, 0.05); border-color: rgba(0, 229, 255, 0.2); color: var(--accent-teal);" onmouseover="this.style.background='rgba(0, 229, 255, 0.15)'" onmouseout="this.style.background='rgba(0, 229, 255, 0.05)'">
+              <span>🔗</span> Copy Invite Link
+            </button>
+          </div>
+        </div>
+        
+        <!-- Action Row -->
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <!-- Contract Clause Button -->
+          <button id="db-upload-clause-btn" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 6px; padding: 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(0, 229, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 229, 255, 0.1)'">📄 Contract Clause</button>
+          
+          <!-- Save Version Button -->
+          <button id="db-save-snapshot-btn" style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); color: var(--accent-violet); border-radius: 6px; padding: 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(139, 92, 246, 0.2)'" onmouseout="this.style.background='rgba(139, 92, 246, 0.1)'">💾 Save Version</button>
+
+          <!-- Summarize Button -->
+          <button id="db-summarize-btn" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 6px; padding: 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(16, 185, 129, 0.2)'" onmouseout="this.style.background='rgba(16, 185, 129, 0.1)'">✨ Summarize</button>
+
+          <!-- Research Tool Button -->
+          <button id="db-research-btn" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 6px; padding: 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(0, 229, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 229, 255, 0.1)'">🔬 Research</button>
+
+          <!-- Active Workflow / Agent Selector -->
+          <div style="position: relative; display: inline-block;">
+            <select id="db-workflow-select" style="background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 6px; padding: 6px 28px 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
+              <option value="" selected>🤖 Agent: Default (Contract Analyzer)</option>
+              <!-- Populated dynamically with Org agents & chains -->
+            </select>
+            <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 0.6rem; color: var(--accent-teal);">▼</span>
+          </div>
+
+          <!-- Export dropdown trigger -->
+          <div style="position: relative; display: inline-block;">
+            <select id="db-export-select" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-slate); color: var(--text-primary); border-radius: 6px; padding: 6px 28px 6px 12px; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;">
+              <option value="" disabled selected>📤 Export options...</option>
+              <option value="markdown">Download Markdown</option>
+              <option value="pdf">Download PDF</option>
+              <option value="copy">Copy to Clipboard</option>
+            </select>
+            <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 0.6rem; color: var(--text-secondary);">▼</span>
+          </div>
+
+          <!-- Invite Form Inline -->
+          <form id="db-invite-member-form" style="display: flex; gap: 6px; align-items: center; border-left: 1px solid var(--border-slate); padding-left: 12px;">
+            <input type="email" id="invite-email" placeholder="Teammate email..." required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 6px 10px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.75rem; outline: none; width: 130px;">
+            <button type="submit" style="background: var(--accent-teal); color: #000; border: none; border-radius: 6px; padding: 6px 10px; font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; cursor: pointer;">Invite</button>
+          </form>
+        </div>
+      </header>
+
+      <!-- Split Workspace Grid (Left Chat, Right Canvas) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - 70px); overflow: hidden;">
+        <!-- Left Column: Shared Chat -->
+        <div style="display: grid; grid-template-rows: 1fr auto 60px; border-right: 1px solid var(--border-slate); height: 100%; position: relative;">
+          <!-- Messages Box -->
+          <section id="db-chat-body" style="padding: 24px; overflow-y: auto; min-height: 0; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth;">
+            <!-- Loaded dynamically -->
+          </section>
+
+          <!-- Autocomplete Suggestion Popover -->
+          <ul id="db-mention-suggestions" style="display: none; position: absolute; bottom: 62px; left: 16px; background: #0c101d; border: 1px solid var(--border-slate); border-radius: 8px; list-style: none; padding: 6px 0; margin: 0; width: 200px; z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.5);">
+            <!-- Loaded dynamically -->
+          </ul>
+
+          <!-- Live Stream Controls toolbar -->
+          <div id="db-stream-controls" style="display: none; background: rgba(0, 229, 255, 0.04); border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 8px; margin: 8px 16px; padding: 10px 16px; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 20px rgba(0, 229, 255, 0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span style="font-size: 0.75rem; color: var(--accent-teal); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 6px; font-weight: 700; text-shadow: 0 0 8px rgba(0, 229, 255, 0.3);">
+                <span class="pulse-indicator" style="display: inline-block; width: 8px; height: 8px; background: var(--accent-teal); border-radius: 50%; box-shadow: 0 0 8px var(--accent-teal); animation: pulse 1s infinite alternate;"></span>
+                AGENT STREAMING: <span id="stream-token-count">0</span> tokens
+              </span>
+              <button id="stream-pause-btn" class="canvas-btn" style="padding: 4px 12px; background: rgba(0, 229, 255, 0.1); border-color: rgba(0, 229, 255, 0.3); color: var(--accent-teal); font-weight: 700; font-family: var(--font-display); cursor: pointer; border-radius: 4px;">⏸ Pause</button>
+              <button id="stream-takeover-btn" class="canvas-btn" style="padding: 4px 12px; background: rgba(239, 83, 80, 0.1); border-color: rgba(239, 83, 80, 0.3); color: #ef5350; font-weight: 700; font-family: var(--font-display); cursor: pointer; border-radius: 4px;">✋ Take Over</button>
+            </div>
+            <form id="stream-redirect-form" style="display: flex; gap: 6px; flex-grow: 0.8; align-items: center; margin: 0; padding: 0; border: none; background: transparent;">
+              <input type="text" id="stream-redirect-input" placeholder="Redirect: e.g. 'focus on liability limits'..." required style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 6px 12px; color: var(--text-primary); font-size: 0.75rem; outline: none; flex-grow: 1; min-width: 100px;">
+              <button type="submit" class="canvas-btn" style="padding: 6px 12px; background: rgba(0, 229, 255, 0.1); border-color: rgba(0, 229, 255, 0.3); color: var(--accent-teal); font-weight: 700; cursor: pointer; border-radius: 4px;">Redirect</button>
+            </form>
+          </div>
+          
+          <!-- Footer message input -->
+          <footer style="border-top: 1px solid var(--border-slate); background: #0b0f19; height: 60px; display: flex; padding: 0; margin: 0; box-sizing: border-box;">
+            <form id="db-chat-form" style="display: flex; width: 100%; align-items: stretch;">
+              <input type="text" id="db-chat-input" placeholder="Ask a question about the contract... (tag @ForgeBot)" autocomplete="off" required style="flex-grow: 1; background: transparent; border: none; padding: 0 16px; color: var(--text-primary); font-family: var(--font-mono); font-size: 0.85rem; outline: none;">
+              <button type="button" id="db-tag-btn" style="background: rgba(0, 229, 255, 0.06); border: none; border-left: 1px solid var(--border-slate); color: var(--accent-teal); font-family: var(--font-mono); font-size: 0.8rem; padding: 0 12px; cursor: pointer;">@ForgeBot</button>
+              <button type="submit" style="background: var(--accent-teal); color: #000; border: none; border-left: 1px solid var(--border-slate); font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; padding: 0 16px; cursor: pointer;">Send</button>
+            </form>
+          </footer>
+        </div>
+
+        <!-- Right Column: Visual Canvas -->
+        <div style="display: flex; flex-direction: column; height: 100%; background: #080c14; overflow: hidden;">
+          <!-- Canvas Header -->
+          <div style="padding: 16px 24px; border-bottom: 1px solid var(--border-slate); background: #0b0f19; display: flex; align-items: center; justify-content: space-between;">
+            <h5 style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Analysis Output (Shared Canvas)</h5>
+            <span style="font-size: 0.75rem; color: var(--text-secondary); font-family: var(--font-mono);">Interactive Review Cards</span>
+          </div>
+
+          <!-- Canvas scroll cards body -->
+          <section id="db-canvas-body" style="padding: 24px; overflow-y: auto; flex-grow: 1; min-height: 0; display: flex; flex-direction: column; gap: 16px;">
+            <!-- Outputs loaded dynamically from API -->
+            <div style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; padding: 32px 0;">Agent review cards will appear here. Paste a contract clause and tag @ForgeBot to analyze!</div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Contract Modal Overlay -->
+    <div class="modal-overlay" id="contract-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 6, 10, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+      <div class="modal-card glass-panel" style="width: 100%; max-width: 500px; padding: 32px; border-radius: 12px; position: relative;">
+        <button class="modal-close" id="contract-modal-close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s;">&times;</button>
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-primary);">Upload Contract Clause</h3>
+        <form id="contract-form" style="display: flex; flex-direction: column; gap: 16px;">
+          <textarea id="contract-clause-input" placeholder="Paste the contract clause here..." required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 14px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem; outline: none; height: 200px; resize: none;"></textarea>
+          <button type="submit" class="btn-primary">Apply Clause to Workspace</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Snapshot Modal Overlay -->
+    <div class="modal-overlay" id="snapshot-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 6, 10, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+      <div class="modal-card glass-panel" style="width: 100%; max-width: 400px; padding: 32px; border-radius: 12px; position: relative;">
+        <button class="modal-close" id="snapshot-modal-close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s;">&times;</button>
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-primary);">Save Session Snapshot</h3>
+        <form id="snapshot-form" style="display: flex; flex-direction: column; gap: 16px;">
+          <input type="text" id="snapshot-label-input" placeholder="e.g., After liability review" required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px 14px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.95rem; outline: none;">
+          <button type="submit" class="btn-primary">Save Version</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Research Tool Modal Overlay -->
+    <div class="modal-overlay" id="research-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 6, 10, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+      <div class="modal-card glass-panel" style="width: 100%; max-width: 480px; padding: 32px; border-radius: 12px; position: relative; border: 1px solid rgba(0, 229, 255, 0.2); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15);">
+        <button class="modal-close" id="research-modal-close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s;">&times;</button>
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+          <span>🔬</span> Deep Research Tool
+        </h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.4;">
+          Specify a topic, policy, or legal clause. ResearchBot will crawl resources and compile a dedicated report.
+        </p>
+        <form id="research-form" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Research Topic / Prompt</label>
+            <textarea id="research-query-input" placeholder="e.g. standard indemnification limitations for intellectual property under Delaware law" required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 12px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.9rem; height: 90px; resize: none; outline: none;"></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="padding: 12px; font-size: 0.85rem;">Start Research Workflow</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Top Share Invite Banner -->
+    <div id="share-banner" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150%); z-index: 3000; width: 95%; max-width: 620px; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px; background: rgba(12, 16, 29, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(0, 229, 255, 0.35); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 229, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);">
+      <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+        <span style="font-size: 1.3rem;">🎉</span>
+        <div style="display: flex; flex-direction: column; gap: 1px;">
+          <span style="font-family: var(--font-display); font-size: 0.8rem; font-weight: 800; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.1;">Room Created!</span>
+          <span style="font-size: 0.72rem; color: var(--text-secondary); font-weight: 500;">Copy the link to invite your friends or teammate:</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; flex-grow: 1; justify-content: flex-end; margin-left: 12px;">
+        <input type="text" id="share-link-input" readonly style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-slate); border-radius: 6px; padding: 6px 10px; color: var(--accent-teal); font-family: var(--font-mono); font-size: 0.75rem; outline: none; width: 230px;" onclick="this.select();">
+        <button id="share-copy-btn" class="btn-primary" style="padding: 6px 12px; font-size: 0.75rem; font-family: var(--font-display); font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+          <span>📋</span> Copy Link
+        </button>
+        <button id="share-banner-close" style="background: none; border: none; color: var(--text-secondary); font-size: 1.4rem; cursor: pointer; padding: 0 4px; transition: color 0.2s; line-height: 1;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">&times;</button>
+      </div>
+    </div>
+
+    <!-- Organization Management Panel Modal -->
+    <div class="modal-overlay" id="org-panel-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 6, 10, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 2100; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+      <div class="modal-card glass-panel" style="width: 100%; max-width: 720px; padding: 32px; border-radius: 12px; position: relative; display: flex; flex-direction: column; max-height: 85vh; border: 1px solid rgba(0, 229, 255, 0.2); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.15);">
+        <button class="modal-close" id="org-panel-close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s;">&times;</button>
+        
+        <h3 id="org-panel-title" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-primary); margin-top: 0;">Org Settings</h3>
+        
+        <!-- Modal Tab Headers -->
+        <div style="display: flex; border-bottom: 1px solid var(--border-slate); margin-bottom: 20px; gap: 16px;">
+          <button class="org-tab-btn active" data-tab="members" style="background: none; border: none; border-bottom: 2px solid var(--accent-teal); color: var(--text-primary); padding: 8px 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; cursor: pointer;">Members & Invites</button>
+          <button class="org-tab-btn" data-tab="agent" style="background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-secondary); padding: 8px 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; cursor: pointer;">Agent Library</button>
+          <button class="org-tab-btn" data-tab="chains" style="background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-secondary); padding: 8px 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; cursor: pointer;">Agent Chains</button>
+          <button class="org-tab-btn" data-tab="audit" style="background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-secondary); padding: 8px 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; cursor: pointer;">Audit Trail</button>
+          <button class="org-tab-btn" data-tab="billing" style="background: none; border: none; border-bottom: 2px solid transparent; color: var(--text-secondary); padding: 8px 4px; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; cursor: pointer;">Billing</button>
+        </div>
+        
+        <!-- Tab Content Area -->
+        <div style="flex-grow: 1; overflow-y: auto; min-height: 0;">
+          
+          <!-- Members Tab -->
+          <div id="org-tab-members" class="org-tab-content" style="display: block;">
+            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 12px; margin-top: 0;">Team Members</h4>
+            <div style="max-height: 220px; overflow-y: auto; border: 1px solid var(--border-slate); border-radius: 8px; background: rgba(0,0,0,0.2); margin-bottom: 20px;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
+                <thead>
+                  <tr style="border-bottom: 1px solid var(--border-slate); color: var(--text-secondary);">
+                    <th style="padding: 10px 16px;">Name</th>
+                    <th style="padding: 10px 16px;">Role</th>
+                    <th style="padding: 10px 16px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="org-members-table-body">
+                  <!-- Members row loaded dynamically -->
+                </tbody>
+              </table>
+            </div>
+            
+            <h4 id="org-invite-header" style="font-size: 0.9rem; color: var(--text-primary); margin-bottom: 12px;">Invite Teammate</h4>
+            <form id="org-invite-form" style="display: flex; gap: 10px; align-items: center; margin-bottom: 0;">
+              <input type="email" id="org-invite-email" placeholder="teammate@company.com" required style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px; color: var(--text-primary); font-size: 0.85rem; outline: none; flex-grow: 1;">
+              <select id="org-invite-role" style="background: rgba(12, 16, 29, 0.9); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px; color: var(--text-primary); font-size: 0.85rem; outline: none; cursor: pointer;">
+                <option value="viewer">Viewer (Read-only)</option>
+                <option value="editor">Editor (Can edit/create)</option>
+                <option value="owner">Owner (Full control)</option>
+              </select>
+              <button type="submit" class="btn-primary" style="padding: 10px 16px; margin: 0; white-space: nowrap;">Invite</button>
+            </form>
+          </div>
+          
+          <!-- Agent Library Tab -->
+          <div id="org-tab-agent" class="org-tab-content" style="display: none; height: 100%;">
+            <div style="display: flex; gap: 20px; height: 100%; min-height: 380px;">
+              
+              <!-- Left Sidebar: Agent List -->
+              <div style="width: 35%; border-right: 1px solid var(--border-slate); padding-right: 16px; display: flex; flex-direction: column; gap: 12px; max-height: 420px; overflow-y: auto;">
+                <h4 style="font-size: 0.95rem; color: var(--text-primary); margin: 0; display: flex; justify-content: space-between; align-items: center;">
+                  <span>AI Agents</span>
+                  <button id="org-create-agent-btn" class="canvas-btn" style="font-size: 0.75rem; border-radius: 4px; padding: 2px 6px; color: var(--accent-teal); border-color: rgba(0, 229, 255, 0.2);">+ New</button>
+                </h4>
+                <div id="org-agents-list-container" style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Dynamic Agent Selection Buttons -->
+                </div>
+              </div>
+              
+              <!-- Right Pane: Edit & Version History -->
+              <div style="width: 65%; display: flex; flex-direction: column; gap: 16px; max-height: 420px; overflow-y: auto; padding-left: 4px;">
+                <div id="org-agent-editor-fallback" style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; padding: 64px 0;">
+                  Select an agent from the library list on the left to customize its prompt configuration or view history.
+                </div>
+                
+                <form id="org-agent-detail-form" style="display: none; flex-direction: column; gap: 12px; margin-bottom: 0;">
+                  <input type="hidden" id="org-agent-detail-slug">
+                  
+                  <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Name</label>
+                      <input type="text" id="org-agent-detail-name" required style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Description</label>
+                      <input type="text" id="org-agent-detail-desc" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none;">
+                    </div>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 12px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Icon</label>
+                      <input type="text" id="org-agent-detail-icon" required placeholder="🤖" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; text-align: center; outline: none;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">LLM Model</label>
+                      <select id="org-agent-detail-model" style="background: rgba(12, 16, 29, 0.9); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none; cursor: pointer;">
+                        <option value="meta/llama-3.1-70b-instruct">Llama 3.1 70B (High Quality)</option>
+                        <option value="meta/llama-3.1-8b-instruct">Llama 3.1 8B (Fast / Lightweight)</option>
+                      </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Temp</label>
+                      <input type="number" id="org-agent-detail-temp" min="0.0" max="1.0" step="0.1" required style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none;">
+                    </div>
+                  </div>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <label style="font-size: 0.7rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Custom System Prompt</label>
+                    <textarea id="org-agent-detail-prompt" required style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.8rem; height: 100px; resize: vertical; outline: none;"></textarea>
+                  </div>
+                  
+                  <button type="submit" id="org-agent-detail-save-btn" class="btn-primary" style="padding: 10px; margin: 0; width: 100%; font-size: 0.85rem;">Save Prompt & Config (New Version)</button>
+                  
+                  <!-- Prompt Version history -->
+                  <div style="margin-top: 12px; border-top: 1px solid var(--border-slate); padding-top: 12px;">
+                    <h5 style="font-size: 0.8rem; color: var(--text-primary); margin: 0 0 8px 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-teal);">Prompt Version History</h5>
+                    <ul id="org-agent-versions-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; max-height: 120px; overflow-y: auto;">
+                      <!-- Load previous prompt snapshots with Revert links -->
+                    </ul>
+                  </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Agent Chains Tab -->
+          <div id="org-tab-chains" class="org-tab-content" style="display: none;">
+            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 6px; margin-top: 0;">Multi-Agent Pipeline Chains</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">Chain agents sequentially to define collaborative workflows. Step 1 feeds step 2, which then compiles the final review.</p>
+            
+            <div style="display: flex; gap: 20px; min-height: 320px;">
+              <!-- Existing Chains -->
+              <div style="width: 40%; border-right: 1px solid var(--border-slate); padding-right: 16px; max-height: 320px; overflow-y: auto;">
+                <h5 style="font-size: 0.8rem; color: var(--text-primary); margin: 0 0 10px 0; text-transform: uppercase; font-family: var(--font-display); font-weight: 700; color: var(--accent-teal);">Configured Pipelines</h5>
+                <ul id="org-chains-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Dynamic chain listings loaded here -->
+                </ul>
+              </div>
+              
+              <!-- Create Chain Form -->
+              <div style="width: 60%; display: flex; flex-direction: column; gap: 12px;">
+                <h5 style="font-size: 0.8rem; color: var(--text-primary); margin: 0; text-transform: uppercase; font-family: var(--font-display); font-weight: 700; color: var(--accent-teal);">Build Pipeline Chain</h5>
+                <form id="org-chain-create-form" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 0;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.75rem; color: var(--text-secondary);">Pipeline Name</label>
+                      <input type="text" id="org-chain-name" required placeholder="NDA Audit Workflow" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      <label style="font-size: 0.75rem; color: var(--text-secondary);">Description</label>
+                      <input type="text" id="org-chain-desc" placeholder="Analyst -> Critic -> Summarizer" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 8px; color: var(--text-primary); font-size: 0.8rem; outline: none;">
+                    </div>
+                  </div>
+                  
+                  <div style="border: 1px dashed var(--border-slate); border-radius: 6px; padding: 12px; background: rgba(0,0,0,0.15);">
+                    <label style="font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Sequential Chain Steps</label>
+                    <div id="org-chain-steps-sequence" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px;">
+                      <!-- Visual step items display here, e.g. Step 1: Legal Analyst -->
+                      <div id="org-chain-empty-steps-indicator" style="font-size: 0.75rem; color: var(--text-secondary); font-style: italic; text-align: center; padding: 10px 0;">No steps added yet. Add agents below.</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <select id="org-chain-agent-selector" style="background: rgba(12, 16, 29, 0.9); border: 1px solid var(--border-slate); border-radius: 6px; padding: 6px; color: var(--text-primary); font-size: 0.8rem; outline: none; flex-grow: 1; cursor: pointer;">
+                        <!-- Options filled with available agents list -->
+                      </select>
+                      <button type="button" id="org-chain-add-step-btn" class="canvas-btn" style="font-size: 0.75rem; border-radius: 6px; padding: 6px 12px;">+ Add Step</button>
+                    </div>
+                  </div>
+                  
+                  <div style="display: flex; gap: 8px;">
+                    <button type="submit" class="btn-primary" style="flex-grow: 1; padding: 10px; margin: 0; font-size: 0.85rem;">Save Chain Pipeline</button>
+                    <button type="button" id="org-chain-clear-btn" class="canvas-btn" style="font-size: 0.85rem; border-radius: 6px; padding: 10px 16px; border-color: rgba(239,83,80,0.3); color: #ef5350;">Reset</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Audit Tab -->
+          <div id="org-tab-audit" class="org-tab-content" style="display: none;">
+            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 6px; margin-top: 0;">Compliance Audit Trail</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">Historical record of room creations, member adjustments, and finalized legal analyses.</p>
+            <div style="height: 280px; overflow-y: auto; border: 1px solid var(--border-slate); border-radius: 8px; background: rgba(0,0,0,0.25); padding: 8px;">
+              <ul id="org-audit-logs-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-secondary);">
+                <!-- Logs loaded dynamically -->
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Billing Tab -->
+          <div id="org-tab-billing" class="org-tab-content" style="display: none;">
+            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 6px; margin-top: 0;">Org Billing Status</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 20px;">Manage organization billing tiers, plans, and workspace quotas.</p>
+            <form id="org-billing-form" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-slate); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-slate); padding-bottom: 12px;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Subscription Status</span>
+                <span id="org-billing-status" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); color: var(--accent-teal); border-radius: 4px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Active</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Billing Tier</label>
+                <select id="org-billing-tier-select" style="background: rgba(12, 16, 29, 0.9); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px; color: var(--text-primary); font-size: 0.85rem; outline: none; cursor: pointer;">
+                  <option value="Free">Free Tier (Limit: 3 Rooms)</option>
+                  <option value="Premium">Premium Pro Campaign (Unlimited Rooms)</option>
+                  <option value="Enterprise">Enterprise Firm Portal (Unlimited Rooms + Audit compliance logs)</option>
+                </select>
+              </div>
+              <button type="submit" id="org-billing-save-btn" class="btn-primary" style="width: 100%; margin: 0; background: linear-gradient(135deg, var(--accent-teal), #00b0ff); color: #000; font-weight: 700;">Update Plan</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  <!-- Auth Modal Overlay -->
+  <div class="modal-overlay" id="auth-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 6, 10, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+    <div class="modal-card glass-panel" style="width: 100%; max-width: 420px; padding: 32px; border-radius: 12px; position: relative; margin: 16px;">
+      <button class="modal-close" id="modal-close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.8rem; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">&times;</button>
+      <h3 id="modal-title" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin-bottom: 24px; color: var(--text-primary);">Sign In</h3>
+      
+      <div id="modal-error" style="background: rgba(239, 83, 80, 0.1); border: 1px solid rgba(239, 83, 80, 0.3); color: #EF5350; padding: 10px 14px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 16px; display: none;"></div>
+      
+      <form id="auth-form" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="form-group" id="name-group" style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="auth-name" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Full Name</label>
+          <input type="text" id="auth-name" placeholder="John Doe" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px 14px; color: var(--text-primary); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-teal)'" onblur="this.style.borderColor='var(--border-slate)'">
+        </div>
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="auth-email" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Email Address</label>
+          <input type="email" id="auth-email" placeholder="john@example.com" required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px 14px; color: var(--text-primary); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-teal)'" onblur="this.style.borderColor='var(--border-slate)'">
+        </div>
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="auth-password" style="font-family: var(--font-display); font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Password</label>
+          <input type="password" id="auth-password" placeholder="••••••••" required style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-slate); border-radius: 6px; padding: 10px 14px; color: var(--text-primary); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-teal)'" onblur="this.style.borderColor='var(--border-slate)'">
+        </div>
+        
+        <button type="submit" class="btn-primary" id="auth-submit-btn" style="margin-top: 8px;">Sign In</button>
+      </form>
+      
+      <p style="margin-top: 20px; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">
+        <span id="modal-toggle-message">Don't have an account?</span>
+        <a href="#" id="modal-toggle-link" style="color: var(--accent-teal); text-decoration: none; font-weight: 600; margin-left: 4px;">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Include Three.js via CDN (r128 version) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  
+  <!-- JavaScript Controller -->
+  <script src="app.js"></script>
+</body>
+</html>
