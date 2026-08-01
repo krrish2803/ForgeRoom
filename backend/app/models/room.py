@@ -59,8 +59,8 @@ class ParticipantInDB(ParticipantBase):
 
 class ParticipantResponse(ParticipantBase):
     id: PyObjectId = Field(alias="_id")
-    joined_at: datetime
-    last_seen: datetime
+    joined_at: Optional[datetime] = None
+    last_seen: Optional[datetime] = None
 
     class Config:
         populate_by_name = True
