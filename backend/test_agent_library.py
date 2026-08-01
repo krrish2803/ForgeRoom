@@ -2,8 +2,9 @@ import requests
 import sys
 import json
 import time
+import os
 
-API_URL = "http://localhost:8002"
+API_URL = os.getenv("API_URL", "http://localhost:8002")
 
 print("====================================================")
 print("     FORGEROOM AI AGENT LIBRARY & CHAINING TEST     ")
