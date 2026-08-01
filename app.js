@@ -67,8 +67,20 @@ const COLORS = {
 
 // Backend API configuration
 const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_URL = isLocalhost ? "http://localhost:8002" : window.location.origin;
-const WS_URL = isLocalhost ? "ws://localhost:8002" : (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host;
+const isNetlify = window.location.hostname.includes('netlify.app');
+
+// Production backend on Render
+const PROD_BACKEND = "https://forgeroom.onrender.com";
+
+const API_URL = isLocalhost 
+  ? "http://localhost:8002" 
+  : (isNetlify ? PROD_BACKEND : window.location.origin);
+
+const WS_URL = isLocalhost 
+  ? "ws://localhost:8002" 
+  : (isNetlify 
+      ? PROD_BACKEND.replace("https://", "wss://").replace("http://", "ws://") 
+      : (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host);
 
 // ==========================================
 // 1. HERO MAIN THREE.JS SIGNATURE ANIMATION
