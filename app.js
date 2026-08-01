@@ -1,4 +1,5 @@
 async function initApp() {
+  console.log("🚀 ForgeRoom: initApp() startup trigger executed.");
   // Initialize Three.js signature animations safely (prevents WebGL support issues from blocking the UI)
   try { initThreeJS(); } catch (e) { console.warn("initThreeJS failed:", e); }
   try { initSharedRoomsThreeJS(); } catch (e) { console.warn("initSharedRoomsThreeJS failed:", e); }
@@ -2767,7 +2768,19 @@ function initAuthModal() {
   const authForm = document.getElementById('auth-form');
   const errorDiv = document.getElementById('modal-error');
   
-  if (!authModal) return;
+  console.log("🔑 ForgeRoom: initAuthModal() executing. Elements status:", {
+    authModal: !!authModal,
+    closeBtn: !!closeBtn,
+    toggleLink: !!toggleLink,
+    modalTitle: !!modalTitle,
+    submitBtn: !!submitBtn,
+    authForm: !!authForm
+  });
+
+  if (!authModal) {
+    console.warn("⚠️ ForgeRoom: #auth-modal element not found in DOM! Exiting initAuthModal.");
+    return;
+  }
 
   let isSignUpMode = true; 
 
@@ -2775,7 +2788,9 @@ function initAuthModal() {
   ctaIds.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
+      console.log("🎯 ForgeRoom: Found CTA button element. Binding click listener to ID:", id);
       el.addEventListener('click', (e) => {
+        console.log("⚡ ForgeRoom: Click captured on button:", id);
         e.preventDefault();
         const isGuest = el.textContent === "Login" || el.id !== "nav-login-btn";
         const token = localStorage.getItem('forgeroom_token');
@@ -2787,12 +2802,17 @@ function initAuthModal() {
           }
           return;
         }
+        console.log("🔓 ForgeRoom: Opening auth modal. Mode (Sign Up):", id !== 'nav-login-btn');
         openModal(id !== 'nav-login-btn');
       });
+    } else {
+      console.warn("⚠️ ForgeRoom: CTA button element not found in DOM for ID:", id);
     }
   });
 
-  closeBtn.addEventListener('click', closeModal);
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
   authModal.addEventListener('click', (e) => {
     if (e.target === authModal) closeModal();
   });
