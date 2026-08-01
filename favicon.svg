@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#07090e" />
+  <!-- Abstract Anvil / Forge Shape -->
+  <path d="M 8,10 L 24,10 L 24,14 L 18,17 L 18,22 L 22,24 L 22,26 L 10,26 L 10,24 L 14,22 L 14,17 L 8,14 Z" fill="url(#glow)" />
+  <!-- Highlight inner point -->
+  <circle cx="16" cy="13" r="1.5" fill="#ffffff" />
+</svg>
