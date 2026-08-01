@@ -57,12 +57,7 @@ async function initApp() {
   }
 }
 
-// Execute immediately if DOM is already parsed, otherwise wait for event
-if (document.readyState === "complete" || document.readyState === "interactive") {
-  initApp();
-} else {
-  document.addEventListener('DOMContentLoaded', initApp);
-}
+
 
 // Premium Color Palette Constants
 const COLORS = {
@@ -2982,4 +2977,11 @@ if (researchForm) {
       console.error("Research REST request failed:", err);
     }
   });
+}
+
+// Execute immediately if DOM is already parsed, otherwise wait for event
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  initApp();
+} else {
+  document.addEventListener('DOMContentLoaded', initApp);
 }
