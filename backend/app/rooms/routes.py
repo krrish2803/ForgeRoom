@@ -139,6 +139,46 @@ async def get_room(room_id: str, current_user: UserInDB = Depends(get_current_us
         "user_role": user_role
     }
 
+@router.delete("/{room_id}")
+async def delete_room(room_id: str, current_user: UserInDB = Depends(get_current_user)):
+    """Delete a room and all associated data"""
+    db = get_db()
+    
+    room = await db["rooms"].find_one({"_id": room_id})
+    if not room:
+        raise HTTPException(status_code=404, detail="Room not found")
+    
+    # Check permissions: room creator or org owner/editor can delete
+    user_id = str(current_user.id)
+    is_creator = room.get("created_by") == user_id
+    
+    org_id = room.get("org_id")
+    if org_id:
+        role = await get_org_member_role(db, org_id, user_id)
+        if not is_creator and role not in ["owner", "editor"]:
+            raise HTTPException(status_code=403, detail="Only room creator or organization owner/editor can delete rooms")
+    elif not is_creator:
+        raise HTTPException(status_code=403, detail="Only room creator can delete rooms")
+    
+    # Delete all related data
+    await db["room_participants"].delete_many({"room_id": room_id})
+    await db["messages"].delete_many({"room_id": room_id})
+    await db["agent_outputs"].delete_many({"room_id": room_id})
+    await db["session_versions"].delete_many({"room_id": room_id})
+    await db["version_messages"].delete_many({"room_id": room_id})
+    await db["rooms"].delete_one({"_id": room_id})
+    
+    # Audit log
+    if org_id:
+        from app.orgs.routes import log_org_action
+        await log_org_action(
+            db, org_id, user_id, current_user.name,
+            "room_deleted", f"Deleted room '{room.get('name')}'.",
+            room_id=room_id
+        )
+    
+    return {"status": "deleted", "room_id": room_id}
+
 @router.post("/{room_id}/workflow")
 async def update_room_workflow(room_id: str, data: dict, current_user: UserInDB = Depends(get_current_user)):
     """Set active agent or active chain workflow for a room"""
