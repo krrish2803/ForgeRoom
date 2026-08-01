@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => {
+async function initApp() {
   // Initialize Three.js signature animations safely (prevents WebGL support issues from blocking the UI)
   try { initThreeJS(); } catch (e) { console.warn("initThreeJS failed:", e); }
   try { initSharedRoomsThreeJS(); } catch (e) { console.warn("initSharedRoomsThreeJS failed:", e); }
@@ -55,7 +55,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       }, 300);
     }
   }
-});
+}
+
+// Execute immediately if DOM is already parsed, otherwise wait for event
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  initApp();
+} else {
+  document.addEventListener('DOMContentLoaded', initApp);
+}
 
 // Premium Color Palette Constants
 const COLORS = {
