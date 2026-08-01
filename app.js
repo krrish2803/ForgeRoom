@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  // Initialize Three.js signature animations
-  initThreeJS();
-  initSharedRoomsThreeJS();
-  initStreamingAgentsThreeJS();
-  initTabs();
-  initFAQ();
-  initAuthModal();
+  // Initialize Three.js signature animations safely (prevents WebGL support issues from blocking the UI)
+  try { initThreeJS(); } catch (e) { console.warn("initThreeJS failed:", e); }
+  try { initSharedRoomsThreeJS(); } catch (e) { console.warn("initSharedRoomsThreeJS failed:", e); }
+  try { initStreamingAgentsThreeJS(); } catch (e) { console.warn("initStreamingAgentsThreeJS failed:", e); }
+  
+  try { initTabs(); } catch (e) { console.warn("initTabs failed:", e); }
+  try { initFAQ(); } catch (e) { console.warn("initFAQ failed:", e); }
+  try { initAuthModal(); } catch (e) { console.warn("initAuthModal failed:", e); }
 
   // Single-Page View Router based on Authentication State
   const token = localStorage.getItem('forgeroom_token');
@@ -37,12 +38,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (landingView) landingView.style.display = 'none';
     if (dashboardView) dashboardView.style.display = 'grid';
     // Load full screen collaborative workspace
-    initDashboard(token, userProfile);
+    try { initDashboard(token, userProfile); } catch (e) { console.error("initDashboard failed:", e); }
   } else {
     if (landingView) landingView.style.display = 'block';
     if (dashboardView) dashboardView.style.display = 'none';
     // Load landing page interactive preview console
-    initLiveConsole();
+    try { initLiveConsole(); } catch (e) { console.error("initLiveConsole failed:", e); }
 
     // Auto-open auth modal if hash is #login or #signup
     const startupHash = window.location.hash;
