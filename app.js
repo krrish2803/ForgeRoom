@@ -8,6 +8,20 @@ function escapeHTML(str) {
     .replace(/'/g, "&#039;");
 }
 
+function toggleModal(modal, open) {
+  if (open) {
+    modal.style.display = "flex";
+    setTimeout(() => modal.classList.add('open'), 10);
+  } else {
+    modal.classList.remove('open');
+    setTimeout(() => {
+      modal.style.display = "none";
+      const form = modal.querySelector('form');
+      if (form) form.reset();
+    }, 300);
+  }
+}
+
 async function initApp() {
   console.log("🚀 ForgeRoom: initApp() startup trigger executed.");
   // Initialize Three.js signature animations safely (prevents WebGL support issues from blocking the UI)
@@ -864,19 +878,7 @@ function initDashboard(token, profile) {
     });
   }
 
-  function toggleModal(modal, open) {
-    if (open) {
-      modal.style.display = "flex";
-      setTimeout(() => modal.classList.add('open'), 10);
-    } else {
-      modal.classList.remove('open');
-      setTimeout(() => {
-        modal.style.display = "none";
-        const form = modal.querySelector('form');
-        if (form) form.reset();
-      }, 300);
-    }
-  }
+
 
   // --- Advanced Features bindings ---
   
