@@ -1,3 +1,13 @@
+function escapeHTML(str) {
+  if (!str) return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 async function initApp() {
   console.log("🚀 ForgeRoom: initApp() startup trigger executed.");
   // Initialize Three.js signature animations safely (prevents WebGL support issues from blocking the UI)
@@ -651,7 +661,7 @@ async function initLiveConsole() {
     const badge = isAi ? "user-badge ai" : "user-badge alex";
     const prefix = isAi ? "" : "@";
 
-    div.innerHTML = `<div class="log-user"><span class="${badge}">${prefix}${msg.username}</span></div><div class="log-content">${msg.content}</div>`;
+    div.innerHTML = `<div class="log-user"><span class="${badge}">${prefix}${msg.username}</span></div><div class="log-content">${escapeHTML(msg.content)}</div>`;
     body.appendChild(div);
     body.scrollTop = body.scrollHeight;
   }
@@ -1681,7 +1691,7 @@ function initDashboard(token, profile) {
             </div>
           ` : ''}
         </div>
-        <div class="canvas-card-content">${card.content}</div>
+        <div class="canvas-card-content">${escapeHTML(card.content).replace(/\n/g, '<br/>')}</div>
         
         <!-- Feedback Reaction widgets bar -->
         <div class="feedback-reaction-bar" style="display: flex; gap: 8px; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; align-items: center;">
@@ -1812,7 +1822,7 @@ function initDashboard(token, profile) {
     const badge = isAi ? "user-badge ai" : "user-badge alex";
     const prefix = isAi ? "" : "@";
 
-    div.innerHTML = `<div class="log-user"><span class="${badge}">${prefix}${msg.username}</span></div><div class="log-content">${msg.content}</div>`;
+    div.innerHTML = `<div class="log-user"><span class="${badge}">${prefix}${msg.username}</span></div><div class="log-content">${escapeHTML(msg.content)}</div>`;
     chatBody.appendChild(div);
     chatBody.scrollTop = chatBody.scrollHeight;
   }

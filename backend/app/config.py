@@ -12,13 +12,9 @@ class AppSettings(BaseModel):
     mongodb_url: str = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
     database_name: str = os.getenv("DATABASE_NAME", "forgeroom")
     
-    # JWT Auth
-    jwt_secret_key: str = os.getenv(
-        "JWT_SECRET_KEY", "9a7c36a4eb8b80b06b9cb8b9c2409f90eb7c36a4eb8b80b06b9cb8b9c2409f90"
-    )
-    jwt_refresh_secret_key: str = os.getenv(
-        "JWT_REFRESH_SECRET_KEY", "e87c36a4eb8b80b06b9cb8b9c2409f90eb7c36a4eb8b80b06b9cb8b9c2409f90"
-    )
+    # JWT Auth (generate cryptographically secure dynamic keys if not defined in env)
+    jwt_secret_key: str = os.getenv("JWT_SECRET_KEY") or "temp_" + os.urandom(32).hex()
+    jwt_refresh_secret_key: str = os.getenv("JWT_REFRESH_SECRET_KEY") or "temp_" + os.urandom(32).hex()
     access_token_expire_minutes: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
     refresh_token_expire_days: int = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "7"))
     

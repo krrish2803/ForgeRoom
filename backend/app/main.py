@@ -187,7 +187,9 @@ async def websocket_endpoint(
             if "@forgebot" in message_text.lower():
                 # We can call the agent respond routine in the background
                 import asyncio
-                asyncio.create_task(trigger_agent_respond_flow(room_id, str(result.inserted_id), message_text))
+                from app.models.user import UserInDB
+                current_user_obj = UserInDB(**user_doc)
+                asyncio.create_task(trigger_agent_respond_flow(room_id, str(result.inserted_id), message_text, current_user_obj))
                 
     except WebSocketDisconnect:
         # Mark participant as offline
@@ -200,7 +202,7 @@ async def websocket_endpoint(
         logger.error(f"WebSocket error in room {room_id}: {e}")
         await manager.disconnect(websocket, room_id, user_name)
 
-async def trigger_agent_respond_flow(room_id: str, message_id: str, user_message: str):
+async def trigger_agent_respond_flow(room_id: str, message_id: str, user_message: str, current_user):
     """Trigger agent response helper for WebSocket actions"""
     try:
         payload = {
@@ -210,7 +212,7 @@ async def trigger_agent_respond_flow(room_id: str, message_id: str, user_message
             "conversation_history": []
         }
         # Call the agent respond route logic internally
-        async for chunk in (await agent_respond(payload)).body_iterator:
+        async for chunk in (await agent_respond(payload, current_user=current_user)).body_iterator:
             pass # The agent respond endpoint automatically broadcasts tokens over WebSockets!
     except Exception as e:
         logger.error(f"Error in automatic socket agent response flow: {e}")
