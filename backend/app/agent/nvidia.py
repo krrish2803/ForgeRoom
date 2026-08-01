@@ -37,7 +37,7 @@ class NvidiaClient:
                     self.api_url,
                     headers=self._get_headers(),
                     json=payload,
-                    timeout=60.0
+                    timeout=90.0
                 )
                 response.raise_for_status()
                 result = response.json()
